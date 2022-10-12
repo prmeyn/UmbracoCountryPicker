@@ -1,0 +1,21 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <UmbracoCountryPickerContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\UmbracoCountryPicker\**\*.*</UmbracoCountryPickerContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyUmbracoCountryPickerAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <UmbracoCountryPickerContentFiles Include="$(UmbracoCountryPickerContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying UmbracoCountryPicker files: $(UmbracoCountryPickerContentFilesPath) - #@(UmbracoCountryPickerContentFiles->Count()) files" Importance="high" />
+        <Copy SourceFiles="@(UmbracoCountryPickerContentFiles)" DestinationFiles="@(UmbracoCountryPickerContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\UmbracoCountryPicker\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+    
+    <Target Name="ClearUmbracoCountryPickerAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <UmbracoCountryPickerDir Include="$(MSBuildProjectDirectory)\App_Plugins\UmbracoCountryPicker\" />
+        </ItemGroup>
+        <Message Text="Clear old UmbracoCountryPicker data" Importance="high" />
+        <RemoveDir Directories="@(UmbracoCountryPickerDir)" />
+    </Target>
+</Project>

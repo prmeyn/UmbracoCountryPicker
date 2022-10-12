@@ -21,23 +21,27 @@ angular.module("umbraco").controller("UmbracoCountryPickerController", function 
 	$scope.model.list = {};
 	$http.get("/umbraco/backoffice/UmbracoCountryPicker/CountryApi/GetKeyValueList?nodeId=" + $routeParams.id + "&propertyAlias=" + $scope.model.alias + "&uniqueFilter=" + ($scope.model.config.uniqueFilter || 0) + "&allowNull=" + ($scope.model.config.allowNull || 0)).then(function (response) {
 		$scope.model.list = response.data;
-
+		
 		for (var key in $scope.model.list) {
 			if (!$scope.model.list.hasOwnProperty(key)) continue;
-			localizeList.push("UmbracoCountryPicker_" + key);
+			localizeList.push("UmbracoCountryPicker_" + $scope.model.list[key].Value);
 		}
+
 		localizationService.localizeMany(localizeList).then(function (data) {
+			
 			for (var i = 0; i < localizeList.length; ++i) {
 				$scope.translations[localizeList[i]] = data[i];
 			}
+			Object.keys($scope.model.list).forEach(key => {
+				$scope.model.list[key].Value = $scope.translations["UmbracoCountryPicker_" + $scope.model.list[key].Value];
+			});
+
+			var valueFromList = _.find($scope.model.list, function (item) { return item.Key === $scope.model.value });
+			if (valueFromList) { $scope.displayValue = valueFromList.Value };
+			$scope.loadInProgress = false;
 		});
 
-		Object.keys($scope.model.list).forEach(key => {
-			$scope.model.list[key] = $scope.translations["UmbracoCountryPicker_" + key];
-		});
-		var valueFromList = _.find($scope.model.list, function (item) { return item.Key === $scope.model.value });
-		if (valueFromList) { $scope.displayValue = valueFromList.Value };
-		$scope.loadInProgress = false;
+		
 	}, function (err) {
 		$scope.loadInProgress = false;
 		});

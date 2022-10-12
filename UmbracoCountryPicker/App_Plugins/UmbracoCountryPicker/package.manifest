@@ -1,6 +1,6 @@
 {
 	"name": "UmbracoCountryPicker",
-	"version": "3.0.0",
+	"version": "10.10.0",
 	"allowPackageTelemetry": true,
 	propertyEditors: [
 		{

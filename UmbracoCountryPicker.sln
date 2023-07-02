@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UmbracoMongoSmsDataServices", "..\UmbracoMongoSmsDataServices\UmbracoMongoSmsDataServices.csproj", "{0CE06A11-7E74-44B7-A066-AAC792E552BE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,10 +23,6 @@ Global
 		{72989D84-F04E-4F56-B114-4636AA56C062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72989D84-F04E-4F56-B114-4636AA56C062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72989D84-F04E-4F56-B114-4636AA56C062}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0CE06A11-7E74-44B7-A066-AAC792E552BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CE06A11-7E74-44B7-A066-AAC792E552BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CE06A11-7E74-44B7-A066-AAC792E552BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CE06A11-7E74-44B7-A066-AAC792E552BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

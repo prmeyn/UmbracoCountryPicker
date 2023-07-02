@@ -4,7 +4,7 @@ using Umbraco.Cms.Core.PropertyEditors;
 
 namespace UmbracoCountryPicker
 {
-	public class UmbracoCountryPickerConverter : IPropertyValueConverter
+	public sealed class UmbracoCountryPickerConverter : IPropertyValueConverter
 	{
 		public bool IsConverter(IPublishedPropertyType propertyType) => propertyType.EditorAlias == "UmbracoCountryPicker";
 		public object ConvertIntermediateToObject(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview) => inter as string;

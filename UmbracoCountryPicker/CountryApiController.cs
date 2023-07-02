@@ -11,7 +11,7 @@ namespace UmbracoCountryPicker
 {
 
 	[PluginController("UmbracoCountryPicker")]
-	public class CountryApiController : KeyValueUmbracoPropertyEditorController
+	public sealed class CountryApiController : KeyValueUmbracoPropertyEditorController
 	{
 		private readonly UmbracoHelper _umbracoHelper;
 
